@@ -6,10 +6,10 @@ SEARCH_RESULTS = (By.CSS_SELECTOR, "[data-component-type='s-search-result']")
 PRODUCT_TITLE = (By.CSS_SELECTOR, 'span.a-size-base-plus.a-color-base.a-text-normal')
 PRODUCT_IMAGE = (By.CSS_SELECTOR, "[data-component-type='s-product-image']")
 
+
 @then('Verify search results shown for {expected_result}')
 def verify_search_results(context, expected_result):
-    actual_result = context.driver.find_element(*RESULT_TEXT).text
-    assert expected_result == actual_result, f'Error! Expected {expected_result} bot got actual {actual_result}'
+    context.app.search_results_page.verify_search_results()
 
 
 @then('Verify that every product has a name and an image')

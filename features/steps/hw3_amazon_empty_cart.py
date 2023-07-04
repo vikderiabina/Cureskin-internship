@@ -10,7 +10,7 @@ def open_amazon(context):
 
 
 @then('Verify that Amazon Cart has the following text {expected_result}')
-def cart_empty(context, expected_result):
-    actual_result = context.driver.find_element(By.CSS_SELECTOR, 'div.a-row.sc-your-amazon-cart-is-empty').text
-    assert expected_result == actual_result, f'Error! Expected {expected_result} but got actual{actual_result}'
+def verify_cart_is_empty(context, expected_result):
+    context.app.cart_page.verify_cart_is_empty()
+
 

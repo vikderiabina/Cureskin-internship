@@ -15,10 +15,9 @@ def first_search_result(context):
     context.driver.find_element(*PRODUCT_PRICE).click()
 
 
-
 @when('Open cart page')
 def open_cart_page(context):
-    context.driver.find_element(By.CSS_SELECTOR, '#nav-cart-count-container').click()
+    context.app.header.open_cart_page()
 
 @then('Verify cart has {expected_item_count} item')
 def check_cart(context, expected_item_count):
