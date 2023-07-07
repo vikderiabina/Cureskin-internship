@@ -32,10 +32,19 @@ def click_sign_in_popup_btn(context):
     context.app.header.click_sign_in_popup_btn()
 
 
-
 @when('Wait for {sec_amount} sec')
 def wait_sec(context, sec_amount):
     sleep(int(sec_amount)) # sleep('5')
+
+
+@when('Hover over language options')
+def hover_lang(context):
+    context.app.header.hover_lang()
+
+
+@when('Select department {text}')
+def select_department(context, text):
+    context.app.header.select_dept(text)
 
 
 @then('Verify Sign In is clickable')
@@ -64,6 +73,9 @@ def verify_link_count(context, expected_amount):
     assert links_count == expected_amount, f'Expected {expected_amount} links but got{links_count}'
 
 
+@then('Verify Spanish option present')
+def verify_spanish_lang_present(context):
+    context.app.header.verify_spanish_lang_present()
 
 
 

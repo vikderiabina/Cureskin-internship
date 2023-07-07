@@ -10,7 +10,7 @@ CURRENT_COLOR = (By.CSS_SELECTOR, "#variation_color_name .selection")
 
 
 @given('Open Amazon product {product_id} page')
-def open_amazon_product(context, product_id):
+def open_product(context, product_id):
     context.driver.get(f'https://www.amazon.com/dp/{product_id}/')
 
 
@@ -24,8 +24,13 @@ def click_add_to_cart(context):
 
 @when('Store product name')
 def get_product_name(context):
-    context.product_name = context.driver.find_element(*PRODUCT_NAME).text
+    context.product_name = context.app.product_page.get_product_name()
     print(f'Current product: {context.product_name}')
+
+
+@when('User hovers over New Arrivals')
+def hover_new_arrivals(context):
+    context.app.product_page.hover_new_arrivals()
 
 
 @then('Verify user can click through {colors}')
@@ -43,5 +48,10 @@ def verify_can_click_colors(context, colors):
 
     assert expected_colors == actual_colors, \
         f'Expected colors{expected_colors} did not match actual {actual_colors}'
+
+
+@then('Verify user can see women link')
+def verify_women_link(context):
+    context.app.product_page.verify_women_link()
 
 

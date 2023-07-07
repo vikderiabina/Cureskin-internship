@@ -1,3 +1,5 @@
+from time import sleep
+
 from selenium.webdriver.common.by import By
 from behave import given, when, then
 
@@ -22,3 +24,11 @@ def verify_products_name_img(context):
         print(title)
         assert title, 'Title cannot be blank'
         assert product.find_element(*PRODUCT_IMAGE).is_displayed, 'Image not found'
+
+
+@then('Verify {text} department shown')
+def verify_dept(context, text):
+    context.app.search_results_page.verify_dept(text)
+
+
+

@@ -38,3 +38,15 @@ Feature: Amazon Search tests
     When Search for coffe
     Then Verify that every product has a name and an image
 
+  Scenario: Verify that user can search in department
+    Given Open amazon main page
+    When Select department books
+    When Search for Faust
+    Then Verify books department shown
+
+  Scenario: Verify that user can search for stroller in department
+    Given Open amazon main page
+    When Select department appliances
+    When Search for freezer
+    Then Verify appliances department shown
+
