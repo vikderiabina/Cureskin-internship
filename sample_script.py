@@ -6,11 +6,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
 
-# get the path to the ChromeDriver executable
-driver_path = ChromeDriverManager().install()
-
 # create a new Chrome browser instance
-service = Service(driver_path)
+service = Service(executable_path=r'C:\Users\vderiabina\PycharmProjects\Cureskin-internship\chromedriver.exe')
 driver = webdriver.Chrome(service=service)
 driver.maximize_window()
 

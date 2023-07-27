@@ -6,5 +6,3 @@ Feature: Cureskin Search tests
     When Click Search
     And Search for SPF
     Then Verify search results shown for “SPF”
-
-

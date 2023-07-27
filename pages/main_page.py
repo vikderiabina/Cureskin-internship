@@ -11,11 +11,12 @@ class MainPage(Page):
     def open_main_page(self):
         self.open_url('https://shop.cureskin.com/')
         self.wait_for_element_click(*self.POP_UP_BTN)
+        self.wait_for_element_disappear(*self.POP_UP_BTN)
 
     def click_search(self):
-        self.click(*self.SEARCH_BTN)
+        self.wait_for_element_click(*self.SEARCH_BTN)
 
     def search_cureskin(self, search_query):
         self.input_text(search_query, *self.SEARCH_FIELD)
         self.wait_for_element_click(*self.SEARCH_BTN_2)
-        pass
+
